@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj": {}
+  },
+  "projects": {
+    "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj",
+        "projectName": "ASPCoreSample",
+        "projectPath": "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj",
+        "packagesPath": "/home/vitor/.nuget/packages/",
+        "outputPath": "/home/vitor/Projetos/ASPCoreSample/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/vitor/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[1.60.9, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[4.0.9, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
