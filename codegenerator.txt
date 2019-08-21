@@ -1,0 +1,92 @@
+1 Parte:
+
+mkdir AspCore_Scaffolding
+dotnet new mvc
+
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL &&
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL.Design &&
+dotnet add package Microsoft.EntityFrameworkCore.Tools &&
+dotnet add package Microsoft.EntityFrameworkCore.Tools.DotNet &&
+
+dotnet restore && dotnet build
+
+dotnet ef dbcontext scaffold "Host=localhost;Database=DbShop;Username=postgres;Password=postgres" Npgsql.EntityFrameworkCore.PostgreSQL -o Models --data-annotations
+
+2 Parte:
+ 
+dotnet add package Microsoft.VisualStudio.Web.CodeGenerators.Mvc &&
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design &&
+dotnet restore && dotnet build
+
+
+dotnet tool install --global dotnet-aspnet-codegenerator
+
+dotnet aspnet-codegenerator controller -name CategoriasController -m Categorias -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name ClientesController -m Clientes -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name AdministradoresController -m Administradores -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name CidadesController -m Cidades -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name FormapagamentosController -m Formapagamentos -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name ItenspedidosController -m Itenspedidos -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name PedidosController -m Pedidos -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name ProdutosController -m Produtos -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+
+dotnet aspnet-codegenerator controller -name StatusController -m Status -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Categorias &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Clientes &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Administradores &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Cidades &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Formapagamentos &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Itenspedidos &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Pedidos &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Produtos &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+dotnet ef migrations add Status &&
+dotnet ef database update &&
+dotnet restore && dotnet build
+
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>

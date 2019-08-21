@@ -1,0 +1,38 @@
+@model IEnumerable<ASPCoreSample.Models.Status>
+ 
+@{
+    ViewData["Title"] = "Index";
+}
+ 
+<h2>Index</h2>
+ 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </th>       
+        <th></th>
+    </tr>
+ 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situacao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |              
+                <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Are sure wants to delete?');">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
