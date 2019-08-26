@@ -1,5 +1,4 @@
 @model ASPCoreSample.Models.Produtos
-@model IEnumerable<ASPCoreSample.Models.Produtos>
 
 @{
     ViewData["Title"] = "Create";
@@ -33,20 +32,9 @@
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-
-            <select name="CategoriasList" class="form-control">
-
-            @foreach (var item in @ViewBag.Categorias)
-            {
-                <option value="@item.CaregoriasId" @(Model.CaregoriasId == item.CaregoriasId ? "selected" : "")>@item.Descricao</option>
-            }
-            </select>
-
-                <!--<label asp-for="Idcategoria" class="control-label"></label>
-                <select asp-for="Idcategoria" class ="form-control" asp-items="@ViewData["Idcategoria"]></select>-->
-
+                <label asp-for="Idcategoria" class="control-label"></label>
+                <select asp-for="Idcategoria" class ="form-control" asp-items="ViewBag.Idcategoria"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

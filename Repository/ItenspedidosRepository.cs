@@ -9,10 +9,10 @@ using System.Text;
 
 namespace ASPCoreSample.Repository
 {
-    public class ProdutosRepository : IRepository<Produtos>
+    public class ItensPedidosRepository : IRepository<ItensPedidos>
     {
         private string connectionString;
-        public ProdutosRepository(IConfiguration configuration)
+        public ItensPedidosRepository(IConfiguration configuration)
         {
             connectionString = configuration.GetValue<string>("DBInfo:ConnectionString");
         }
@@ -27,23 +27,23 @@ namespace ASPCoreSample.Repository
         }
       
 
-        public void Add(Produtos item)
+        public void Add(ItensPedidos item)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("INSERT INTO Produtos (descricao, preco, idcategoria, imagem, nome) VALUES(@Descricao, @Preco, @Idcategoria, @Imagem, @Nome)", item);
+                dbConnection.Execute("INSERT INTO ItensPedidos (idproduto, idpedido, quantidade) VALUES(@Idproduto, @Idpedido, @Quantidade)", item);
             }
 
         }
 
     
-        public Produtos FindByID(int id)
+        public ItensPedidos FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Produtos>("SELECT * FROM Produtos WHERE id = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<ItensPedidos>("SELECT * FROM ItensPedidos WHERE id = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -52,26 +52,26 @@ namespace ASPCoreSample.Repository
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM Produtos WHERE Id=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM ItensPedidos WHERE Id=@Id", new { Id = id });
             }
         }
 
-        public void Update(Produtos item)
+        public void Update(ItensPedidos item)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE Produtos SET descricao = @Descricao,  preco  = @Preco, imagem = @Imagem, nome = @Nome, idcategoria = @Idcategoria WHERE id = @Id", item);
+                dbConnection.Query("UPDATE ItensPedidos SET idproduto = @Idproduto,  idpeddo  = @Idpedido, quantidade = @Quantidade WHERE id = @Id", item);
             }
         }
 
 
-        public IEnumerable<Produtos> FindAll()
+        public IEnumerable<ItensPedidos> FindAll()
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Produtos>("SELECT * FROM Produtos");
+                return dbConnection.Query<ItensPedidos>("SELECT * FROM ItensPedidos");
             }
         }
 

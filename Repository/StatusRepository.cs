@@ -42,7 +42,9 @@ namespace ASPCoreSample.Repository
                 return dbConnection.Query<Status>("SELECT * FROM Status");
             }
         }
- 
+
+        public IEnumerable<Status> FindAllT => throw new System.NotImplementedException();
+
         public Status FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)
@@ -69,5 +71,7 @@ namespace ASPCoreSample.Repository
                 dbConnection.Query("UPDATE Status SET situacao = @Situacao WHERE id = @Id", item);
             }
         }
+
+     
     }
 }

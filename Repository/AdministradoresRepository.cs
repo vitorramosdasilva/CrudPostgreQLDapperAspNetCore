@@ -42,7 +42,9 @@ namespace ASPCoreSample.Repository
                 return dbConnection.Query<Administradores>("SELECT * FROM Administradores");
             }
         }
- 
+
+        public IEnumerable<Administradores> FindAllT => throw new System.NotImplementedException();
+
         public Administradores FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)
@@ -69,5 +71,7 @@ namespace ASPCoreSample.Repository
                 dbConnection.Query("UPDATE Administradores SET nome = @Nome,  login  = @Login, senha= @Senha WHERE id = @Id", item);
             }
         }
+
+     
     }
 }

@@ -10,5 +10,6 @@ namespace ASPCoreSample.Repository
         void Update(T item);
         T FindByID(int id);
         IEnumerable<T> FindAll();
+              
     }
 }

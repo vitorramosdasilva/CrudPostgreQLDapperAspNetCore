@@ -42,7 +42,9 @@ namespace ASPCoreSample.Repository
                 return dbConnection.Query<Customer>("SELECT * FROM customer");
             }
         }
- 
+
+        public IEnumerable<Customer> FindAllT => throw new System.NotImplementedException();
+
         public Customer FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)
@@ -69,5 +71,7 @@ namespace ASPCoreSample.Repository
                 dbConnection.Query("UPDATE customer SET name = @Name,  phone  = @Phone, email= @Email, address= @Address WHERE id = @Id", item);
             }
         }
+
+   
     }
 }

@@ -23,7 +23,8 @@ namespace ASPCoreSample.Repository
                 return new NpgsqlConnection(connectionString);
             }
         }
- 
+
+       
         public void Add(Categorias item)
         {
             using (IDbConnection dbConnection = Connection)
@@ -47,7 +48,9 @@ namespace ASPCoreSample.Repository
                 return dbConnection.Query<Categorias>("SELECT * FROM Categorias");
             }
         }
- 
+
+        public IEnumerable<Categorias> FindAllT => throw new System.NotImplementedException();
+
         public Categorias FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)
@@ -84,5 +87,7 @@ namespace ASPCoreSample.Repository
                 dbConnection.Query("UPDATE Categorias SET descricao = @Descricao WHERE id = @Id", item);
             }
         }
+
+      
     }
 }

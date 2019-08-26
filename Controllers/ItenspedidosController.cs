@@ -10,83 +10,85 @@ using System.Data;
 
 namespace ASPCoreSample.Controllers
 {
-    public class ProdutosController : Controller
+    public class ItenspedidosController : Controller
     {
+        private readonly ItenspedidosRepository ItenspedidosRepository;
         private readonly ProdutosRepository ProdutosRepository;
-        private readonly CategoriasRepository CategoriasRepository;
+        //private readonly PedidosRepository ProdutosRepository;
 
-        public ProdutosController(IConfiguration configuration)
+        public ItenspedidosController(IConfiguration configuration)
         {
+            ItenspedidosRepository = new ItenspedidosRepository(configuration);
             ProdutosRepository = new ProdutosRepository(configuration);
-            CategoriasRepository = new CategoriasRepository(configuration);
+            //PedidosRepository = new PedidosRepository(configuration);
         }
     
 
 
         public IActionResult Index()
         {
-            return View(ProdutosRepository.FindAll());
+            return View(ItenspedidosRepository.FindAll());
         }
 
 
         public IActionResult Create()
         {
 
-            ViewData["Idcategoria"] = new SelectList(CategoriasRepository.FindAll(), "Id", "Descricao");
+            ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao");
             return View();
         }
 
-        // POST: Produtos/Create
+        // POST: Itenspedidos/Create
         [HttpPost]
-        public IActionResult Create(Produtos prod)
+        public IActionResult Create(Itenspedidos prod)
         {
             if (ModelState.IsValid)
             {
-                ProdutosRepository.Add(prod);
+                ItenspedidosRepository.Add(prod);
                 return RedirectToAction("Index");
             }
 
-            ViewData["Idcategoria"] = new SelectList(CategoriasRepository.FindAll(), "Id", "Descricao", prod.Idcategoria);
+            ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao", prod.Idproduto);
             return View(prod);
 
         }
 
 
 
-        // GET: /Produtos/Edit/1
+        // GET: /Itenspedidos/Edit/1
         public IActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            Produtos obj = ProdutosRepository.FindByID(id.Value);
+            Itenspedidos obj = ItenspedidosRepository.FindByID(id.Value);
             if (obj == null)
             {
                 return NotFound();
             }
             
-            ViewData["Idcategoria"] = new SelectList(CategoriasRepository.FindAll(), "Id", "Descricao", obj.Idcategoria);
+            ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao", obj.Idproduto);
             return View(obj);
 
         }
 
-        // POST: /Produtos/Edit   
+        // POST: /Itenspedidos/Edit   
         [HttpPost]
-        public IActionResult Edit(Produtos obj)
+        public IActionResult Edit(Itenspedidos obj)
         {
 
             if (ModelState.IsValid)
             {
-                ProdutosRepository.Update(obj);
+                ItenspedidosRepository.Update(obj);
                 return RedirectToAction("Index");
             }
 
-            ViewData["Idcategoria"] = new SelectList(CategoriasRepository.FindAll(), "Id", "Descricao", obj.Idcategoria);
+            ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao", obj.Idproduto);
             return View(obj);
         }
 
-        // GET:/Produtos/Delete/1
+        // GET:/Itenspedidos/Delete/1
         public IActionResult Delete(int? id)
         {
 
@@ -94,7 +96,7 @@ namespace ASPCoreSample.Controllers
             {
                 return NotFound();
             }
-            ProdutosRepository.Remove(id.Value);
+            ItenspedidosRepository.Remove(id.Value);
             return RedirectToAction("Index");
         }
 

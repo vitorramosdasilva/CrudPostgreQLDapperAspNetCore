@@ -13,16 +13,16 @@ namespace ASPCoreSample.Controllers
         {
             CategoriasRepository = new CategoriasRepository(configuration);
         }
- 
- 
+
+		 
         public IActionResult Index()
         {
             return View(CategoriasRepository.FindAll());
         }
  
         public IActionResult Create()
-        {
-            return View();
+        {           
+			return View();
         }
  
         // POST: Categorias/Create
