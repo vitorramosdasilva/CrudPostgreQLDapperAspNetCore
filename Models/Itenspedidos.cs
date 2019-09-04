@@ -17,15 +17,15 @@ namespace ASPCoreSample.Models
         [Required]        
         public int Idproduto { get; set; }
 
-        //[Required]
-        //public decimal Idpedido { get; set; }
+        
+        public int Idpedido { get; set; }
         
         [Required]        
-        public string Quantidade { get; set; }
+        public int Quantidade { get; set; }
         
                 
-        //public Pedidos pedidos{ get; set; }
-        public Produtos produtos{ get; set; }
+        public Pedidos pedidos{ get; set; }
+        public Produtos Produtos { get; set; }
 
         
      

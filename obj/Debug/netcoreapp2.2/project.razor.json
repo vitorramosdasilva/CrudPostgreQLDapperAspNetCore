@@ -15,7 +15,7 @@
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
-        "Documentation": null,
+        "Documentation": "\n            <summary>\n            <see cref=\"T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper\" /> implementation targeting &lt;a&gt; elements.\n            </summary>\n        ",
         "TagOutputHint": null,
         "CaseSensitive": false,
         "TagMatchingRules": [
@@ -204,7 +204,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The name of the action method.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page\" /> is non-<c>null</c>.\n            </remarks>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Action"
@@ -218,7 +218,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The name of the controller.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page\" /> is non-<c>null</c>.\n            </remarks>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Controller"
@@ -232,7 +232,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The name of the area.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> is non-<c>null</c>.\n            </remarks>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Area"
@@ -246,7 +246,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The name of the page.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Action\" />, <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Controller\" />\n            is non-<c>null</c>.\n            </remarks>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Page"
@@ -260,7 +260,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The name of the page handler.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route\" /> or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Action\" />, or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Controller\" />\n            is non-<c>null</c>.\n            </remarks>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "PageHandler"
@@ -274,7 +274,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The protocol for the URL, such as \"http\" or \"https\".\n            </summary>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Protocol"
@@ -288,7 +288,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The host name.\n            </summary>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Host"
@@ -302,7 +302,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            The URL fragment name.\n            </summary>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Fragment"
@@ -316,7 +316,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            Name of the route.\n            </summary>\n            <remarks>\n            Must be <c>null</c> if one of <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Action\" />, <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Controller\" />, <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Area\" /> \n            or <see cref=\"P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page\" /> is non-<c>null</c>.\n            </remarks>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "Route"
@@ -330,7 +330,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": "asp-route-",
             "IndexerTypeName": "System.String",
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            Additional parameters for the route.\n            </summary>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "RouteValues"
@@ -2966,8 +2966,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Formapagamentos/Index.cshtml",
+      "TargetPath": "Views/Formapagamentos/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Carrinhos/Index.cshtml",
+      "TargetPath": "Views/Carrinhos/Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2996,8 +3006,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Itenspedidos/Carrinho.cshtml",
+      "TargetPath": "Views/Itenspedidos/Carrinho.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Home/Privacy.cshtml",
       "TargetPath": "Views/Home/Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Formapagamentos/Edit.cshtml",
+      "TargetPath": "Views/Formapagamentos/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Clientes/Create.cshtml",
+      "TargetPath": "Views/Clientes/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Itenspedidos/Edit.cshtml",
+      "TargetPath": "Views/Itenspedidos/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Formapagamentos/Create.cshtml",
+      "TargetPath": "Views/Formapagamentos/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Cidades/Edit.cshtml",
+      "TargetPath": "Views/Cidades/Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3006,8 +3046,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Cidades/Create.cshtml",
+      "TargetPath": "Views/Cidades/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Categorias/Index.cshtml",
       "TargetPath": "Views/Categorias/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Pedidos/Edit.cshtml",
+      "TargetPath": "Views/Pedidos/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Itenspedidos/Create.cshtml",
+      "TargetPath": "Views/Itenspedidos/Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3016,8 +3071,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Pedidos/Create.cshtml",
+      "TargetPath": "Views/Pedidos/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Customer/Index.cshtml",
       "TargetPath": "Views/Customer/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/Menu.cshtml",
+      "TargetPath": "Views/Shared/Menu.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Clientes/Login.cshtml",
+      "TargetPath": "Views/Clientes/Login.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3036,6 +3106,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Itenspedidos/Index.cshtml",
+      "TargetPath": "Views/Itenspedidos/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Clientes/Edit.cshtml",
+      "TargetPath": "Views/Clientes/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Administradores/Edit.cshtml",
       "TargetPath": "Views/Administradores/Edit.cshtml",
       "FileKind": "mvc"
@@ -3048,6 +3128,16 @@
     {
       "FilePath": "Views/Administradores/Index.cshtml",
       "TargetPath": "Views/Administradores/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Cidades/Index.cshtml",
+      "TargetPath": "Views/Cidades/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_MyLayout.cshtml",
+      "TargetPath": "Views/Shared/_MyLayout.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3068,6 +3158,16 @@
     {
       "FilePath": "Views/Status/Edit.cshtml",
       "TargetPath": "Views/Status/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Clientes/Index.cshtml",
+      "TargetPath": "Views/Clientes/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Pedidos/Index.cshtml",
+      "TargetPath": "Views/Pedidos/Index.cshtml",
       "FileKind": "mvc"
     },
     {

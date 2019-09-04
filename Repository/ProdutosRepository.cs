@@ -75,7 +75,7 @@ namespace ASPCoreSample.Repository
             }
         }
 
-   
+    
     }
 }
 

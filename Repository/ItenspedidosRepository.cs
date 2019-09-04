@@ -7,12 +7,13 @@ using Npgsql;
 using ASPCoreSample.Models;
 using System.Text;
 
+
 namespace ASPCoreSample.Repository
 {
-    public class ItensPedidosRepository : IRepository<ItensPedidos>
+    public class ItenspedidosRepository : IRepository<Itenspedidos>
     {
         private string connectionString;
-        public ItensPedidosRepository(IConfiguration configuration)
+        public ItenspedidosRepository(IConfiguration configuration)
         {
             connectionString = configuration.GetValue<string>("DBInfo:ConnectionString");
         }
@@ -27,23 +28,23 @@ namespace ASPCoreSample.Repository
         }
       
 
-        public void Add(ItensPedidos item)
+        public void Add(Itenspedidos item)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("INSERT INTO ItensPedidos (idproduto, idpedido, quantidade) VALUES(@Idproduto, @Idpedido, @Quantidade)", item);
+                dbConnection.Execute("INSERT INTO ItensPedidos (idproduto, idpedido, quantidade) VALUES(@Idproduto, @Idpedido, @Quantidade);", item);
             }
 
         }
 
     
-        public ItensPedidos FindByID(int id)
+        public Itenspedidos FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<ItensPedidos>("SELECT * FROM ItensPedidos WHERE id = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<Itenspedidos>("SELECT * FROM ItensPedidos WHERE id = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -56,7 +57,7 @@ namespace ASPCoreSample.Repository
             }
         }
 
-        public void Update(ItensPedidos item)
+        public void Update(Itenspedidos item)
         {
             using (IDbConnection dbConnection = Connection)
             {
@@ -66,16 +67,53 @@ namespace ASPCoreSample.Repository
         }
 
 
-        public IEnumerable<ItensPedidos> FindAll()
+        // public IEnumerable<Itenspedidos> FindAll()
+        // {
+        //     using (IDbConnection dbConnection = Connection)
+        //     {
+        //         dbConnection.Open();
+        //         return dbConnection.Query<Itenspedidos>("SELECT * FROM ItensPedidos");
+        //     }
+        // }
+
+        public IEnumerable<Itenspedidos> FindAll()
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<ItensPedidos>("SELECT * FROM ItensPedidos");
+                return dbConnection.Query<Itenspedidos, Produtos, Itenspedidos>(
+                    "SELECT c.Id, c.Idproduto, p.preco, c.quantidade, p.nome FROM Itenspedidos c inner Join Produtos p On c.Idproduto = p.Id",
+                map: (itenspedidos, produtos) =>
+                    {
+                        itenspedidos.Produtos = produtos;
+                        //itenspedidos.Pedidos = pedidos;
+                        return itenspedidos;
+                    },
+                    splitOn: "Id,Idproduto");
+
             }
         }
 
-   
+
+
+
+        //  public override IEnumerable<Itenspedidos> FindAll()
+        // {
+        //     using (IDbConnection dbConnection = Connection)
+        //     {
+        //         dbConnection.Open();
+        //         //return dbConnection.Query<Itenspedidos>("SELECT * FROM ItensPedidos");
+
+        //         return dbConnection.FindAll<Itenspedidos, Produtos,Pedidos Itenspedidos>((itenspedidos, produtos, pedidos) =>
+        //         {
+        //             itenspedidos.Produtos = produtos;
+        //             itenspedidos.Pedidos = pedidos;
+        //             return itenspedidos;
+        //         });
+        //     }
+        // }
+
+
     }
 }
 

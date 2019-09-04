@@ -33,7 +33,9 @@ namespace ASPCoreSample.Repository
             }
  
         }
- 
+
+     
+
         public IEnumerable<Status> FindAll()
         {
             using (IDbConnection dbConnection = Connection)
@@ -43,8 +45,7 @@ namespace ASPCoreSample.Repository
             }
         }
 
-        public IEnumerable<Status> FindAllT => throw new System.NotImplementedException();
-
+        
         public Status FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)

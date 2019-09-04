@@ -14,13 +14,13 @@ namespace ASPCoreSample.Controllers
     {
         private readonly ItenspedidosRepository ItenspedidosRepository;
         private readonly ProdutosRepository ProdutosRepository;
-        //private readonly PedidosRepository ProdutosRepository;
+        private readonly PedidosRepository PedidosRepository;
 
         public ItenspedidosController(IConfiguration configuration)
         {
             ItenspedidosRepository = new ItenspedidosRepository(configuration);
             ProdutosRepository = new ProdutosRepository(configuration);
-            //PedidosRepository = new PedidosRepository(configuration);
+            PedidosRepository = new PedidosRepository(configuration);
         }
     
 
@@ -30,11 +30,20 @@ namespace ASPCoreSample.Controllers
             return View(ItenspedidosRepository.FindAll());
         }
 
+        public IActionResult Carrinho(int? id)
+        {
+            ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao");
+            ViewData["Idpedido"] = new SelectList(PedidosRepository.FindAll(), "Id", "Data");
+            
+            return View();
+        }
+
 
         public IActionResult Create()
         {
 
             ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao");
+            ViewData["Idpedido"] = new SelectList(PedidosRepository.FindAll(), "Id", "Data");
             return View();
         }
 
@@ -49,6 +58,7 @@ namespace ASPCoreSample.Controllers
             }
 
             ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao", prod.Idproduto);
+            ViewData["Idpedido"] = new SelectList(PedidosRepository.FindAll(), "Id", "Data",prod.Idpedido);
             return View(prod);
 
         }
@@ -69,6 +79,7 @@ namespace ASPCoreSample.Controllers
             }
             
             ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao", obj.Idproduto);
+            ViewData["Idpedido"] = new SelectList(PedidosRepository.FindAll(), "Id", "Data", obj.Idpedido);
             return View(obj);
 
         }
@@ -85,6 +96,7 @@ namespace ASPCoreSample.Controllers
             }
 
             ViewData["Idproduto"] = new SelectList(ProdutosRepository.FindAll(), "Id", "Descricao", obj.Idproduto);
+            ViewData["Idpedido"] = new SelectList(PedidosRepository.FindAll(), "Id", "Data", obj.Idpedido);
             return View(obj);
         }
 

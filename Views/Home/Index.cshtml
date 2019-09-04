@@ -1,8 +1,115 @@
-﻿@{
+﻿@using ASPCoreSample.Models
+@using System.Security.Claims
+@model IEnumerable<ASPCoreSample.Models.Produtos>
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Alibaba</a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+      <ul class="navbar-nav mr-auto">        
+        <li class="nav-item active">         
+          <a a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>         
+        </li>
+
+       
+      <li class="nav-item dropdown">
+            <ul class="nav navbar-nav">
+            <li>
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                   Categorias </a>
+                  <ul class="dropdown-menu">
+          @foreach (var categoria in (IEnumerable<Categorias>)ViewData["Idcategoria"]) { 
+
+             <li>@Html.ActionLink(categoria.Descricao, "Descricao", "HomeController", new { id = categoria.Id }, null)</li>
+          }
+      </ul>
+      </li>
+  </ul>
+    </div>
+
+      </li>
+
+  
+
+   @if (User.Identity.IsAuthenticated) {
+     <div class="navbar-nav">
+     @User.Identity.Name
+     </div>
+
+     <div class="navbar-nav">
+        
+          <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Logout"><b> Sair </b><span class="glyphicon glyphicon-off"><span></a> 
+        
+     </div>
+   }else{
+
+   <div class="navbar-nav">
+    
+      <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Login"><b> Entrar </b>
+        <span class="glyphicon glyphicon-log-in"></span></a> 
+      
+   </div>
+
+
+    <div class="navbar-nav">     
+         
+            <a asp-area="" asp-controller="Clientes" asp-action="Create"><b>Cadastrar-se  </b></a>
+            <span class="glyphicon glyphicon-user"></span>
+
+    </div>  
+
+
+   }
+  
+  </ul>
+
+
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+    </form>
+    </div>
+  </nav>
+
+	
+
+    <div class="row no-gutters">               
+
+
+		@foreach (var item in Model) {
+
+			<div class="col-md-2 box text-center">
+				<div class="card card-custom box" style="width: 13rem;">
+				  <img src="/img/items/1.jpg" class="card-img-top" alt="produto">
+				  <div class="card-body">
+				    <h5 class="card-title text-center">R$ 130,00</h5>
+				    <p class="card-text text-center">Ferro de Passar Roupa - Philips</p>			
+				    <a asp-controller="Carrinhos" asp-action="Create" asp-route-id="@item.Id" class="btn btn-primary center-block">Adicionar ao Carrinho</a>
+				  </div>
+				</div>
+			</div>
+
+		}
+
+	</div>
+
+
+
+
+
+
+

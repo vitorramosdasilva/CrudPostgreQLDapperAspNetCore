@@ -7,8 +7,6 @@ namespace ASPCoreSample.Models
    
     public partial class Categorias: BaseEntity
     {
-        internal Produtos categorias;
-
         [Key]
         public int Id { get; set; }
 
