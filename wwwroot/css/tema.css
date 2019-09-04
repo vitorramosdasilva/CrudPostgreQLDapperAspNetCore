@@ -68,6 +68,11 @@ li{
 
 	list-style-type: none;
 
+
+}
+
+.dropdown-toggle{
+  color: gray;
 }
 
 

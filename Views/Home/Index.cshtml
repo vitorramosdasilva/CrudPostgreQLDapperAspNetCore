@@ -17,11 +17,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     
-      <ul class="navbar-nav mr-auto">        
+       <ul class="navbar-nav mr-auto">        
         <li class="nav-item active">         
-          <a a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>         
+         <!-- <a a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>   -->      
         </li>
 
        
@@ -29,7 +31,7 @@
             <ul class="nav navbar-nav">
             <li>
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                   Categorias </a>
+                   <b>Categorias</b> </a>
                   <ul class="dropdown-menu">
           @foreach (var categoria in (IEnumerable<Categorias>)ViewData["Idcategoria"]) { 
 
@@ -44,33 +46,24 @@
 
   
 
-   @if (User.Identity.IsAuthenticated) {
+   @if (! User.Identity.IsAuthenticated){
+
      <div class="navbar-nav">
-     @User.Identity.Name
+      <ul>
+        <li>
+          <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Login"><b>   Entrar   </b>
+            <span class="glyphicon glyphicon-log-in"></span></a>
+        </li>
+      </ul>
      </div>
 
      <div class="navbar-nav">
-        
-          <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Logout"><b> Sair </b><span class="glyphicon glyphicon-off"><span></a> 
-        
+        <ul> 
+          <li>    
+              <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Create"><b>Cadastrar-se&nbsp </b><span class="glyphicon glyphicon-user">&nbsp</span></a>
+          </li>        
+        </ul>
      </div>
-   }else{
-
-   <div class="navbar-nav">
-    
-      <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Login"><b> Entrar </b>
-        <span class="glyphicon glyphicon-log-in"></span></a> 
-      
-   </div>
-
-
-    <div class="navbar-nav">     
-         
-            <a asp-area="" asp-controller="Clientes" asp-action="Create"><b>Cadastrar-se  </b></a>
-            <span class="glyphicon glyphicon-user"></span>
-
-    </div>  
-
 
    }
   
@@ -82,6 +75,19 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
     </form>
+
+    @if (User.Identity.IsAuthenticated) {
+     <div class="navbar-nav">
+     @User.Identity.Name
+     </div>
+
+     <div class="navbar-nav">
+        
+          <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Logout"><b> Sair </b><span class="glyphicon glyphicon-off"><span></a> 
+        
+     </div>
+   }
+
     </div>
   </nav>
 

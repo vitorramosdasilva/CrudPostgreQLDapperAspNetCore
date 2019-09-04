@@ -96,3 +96,4 @@
 /home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/obj/Debug/netcoreapp2.2/Razor/Views/Carrinhos/Index.g.cshtml.cs
 /home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/obj/Debug/netcoreapp2.2/Razor/Views/Shared/Menu.g.cshtml.cs
 /home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/obj/Debug/netcoreapp2.2/Razor/Views/Clientes/Login.g.cshtml.cs
+/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/obj/Debug/netcoreapp2.2/Razor/Views/Home/Painel.g.cshtml.cs
