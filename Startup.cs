@@ -36,7 +36,14 @@ namespace ASPCoreSample
             {
                 options.LoginPath = "/Clientes/Login/";  
 
-            });  
+            }); 
+
+            services.AddDistributedMemoryCache();  
+            services.AddSession(options => {  
+            options.IdleTimeout = TimeSpan.FromMinutes(30);//You can set Time   
+            });
+
+            services.AddMvc(); 
 
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -50,6 +57,7 @@ namespace ASPCoreSample
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
             }
             else
             {
@@ -61,6 +69,7 @@ namespace ASPCoreSample
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession(); 
 
             app.UseMvc(routes =>
             {
@@ -69,5 +78,6 @@ namespace ASPCoreSample
                     template: "{controller=Clientes}/{action=Login}/{id?}");
             });
         }
+
     }
 }

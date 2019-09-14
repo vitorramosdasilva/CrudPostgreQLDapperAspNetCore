@@ -1,6 +1,7 @@
 ﻿@using ASPCoreSample.Models
 @using System.Security.Claims
 @model IEnumerable<ASPCoreSample.Models.Produtos>
+@using Microsoft.AspNetCore.Http
 
 
 @{
@@ -48,13 +49,13 @@
 
    @if (! User.Identity.IsAuthenticated){
 
-     <div class="navbar-nav">
-      <ul>
-        <li>
-          <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Login"><b>   Entrar   </b>
-            <span class="glyphicon glyphicon-log-in"></span></a>
-        </li>
-      </ul>
+      <div class="navbar-nav">
+        <ul>
+          <li>
+            <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Login"><b>   Entrar   </b>
+              <span class="glyphicon glyphicon-log-in"></span></a>
+          </li>
+        </ul>
      </div>
 
      <div class="navbar-nav">
@@ -78,9 +79,13 @@
 
     @if (User.Identity.IsAuthenticated) {
      <div class="navbar-nav">
-     @User.Identity.Name
+      @User.Identity.Name
+      <p>@ViewBag.Id</p>
+
      </div>
 
+     
+     
      <div class="navbar-nav">
         
           <a class="nav-item nav-link" asp-area="" asp-controller="Clientes" asp-action="Logout"><b> Sair </b><span class="glyphicon glyphicon-off"><span></a> 
@@ -93,8 +98,7 @@
 
 	
 
-    <div class="row no-gutters">               
-
+    <div class="row no-gutters">
 
 		@foreach (var item in Model) {
 

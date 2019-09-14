@@ -30,6 +30,11 @@ namespace ASPCoreSample.Controllers
         public IActionResult Index()
         {
             ViewData["Idcategoria"] = CategoriasRepository.FindAll();
+            
+            // if (TempData["Id"].ToString() != null){
+            //     ViewBag.Id = TempData["Id"].ToString();
+            // } 
+           
             return View(ProdutosRepository.FindAll());
             //Categorias = CategoriasRepository.FindAll()});
 
@@ -112,6 +117,7 @@ namespace ASPCoreSample.Controllers
 
         public IActionResult Painel()
         {
+            
             return View();
         }
 

@@ -48,6 +48,15 @@ namespace ASPCoreSample.Repository
 
         }
 
+         public Clientes FindByEmail(string email)
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+                return dbConnection.Query<Clientes>("SELECT * FROM Clientes WHERE email = @Email", new { Email = email }).FirstOrDefault();
+            }
+        }
+
     
         public Clientes FindByID(int id)
         {
@@ -105,7 +114,7 @@ namespace ASPCoreSample.Repository
                 
                 string Sql = "Select * From Clientes Where Email = @Email and Senha = @Senha";
 
-                if (dbConnection.Query<Clientes>(Sql.ToString(), cli).FirstOrDefault() != null){
+             if (dbConnection.Query<Clientes>(Sql.ToString(), cli).FirstOrDefault() != null){
                     authentication = "Success";
                 }
    

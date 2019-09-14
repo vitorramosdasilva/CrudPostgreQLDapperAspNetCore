@@ -10,6 +10,7 @@ using System.Data;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace ASPCoreSample.Controllers
 {
@@ -124,25 +125,39 @@ namespace ASPCoreSample.Controllers
         public async Task<IActionResult> Login([Bind] Clientes user)
         {
             //ModelState.Remove("Email");
-            //ModelState.Remove("Senha");  
+            //ModelState.Remove("Senha");
+
+            const string SessionId = "Id";  
 
             if (user != null)
             {
                 string LoginStatus = ClientesRepository.ValidateLogin(user);  
 
                 if (LoginStatus == "Success")
-                {   
-                    var claims = new List<Claim> 
-                    {
-                        new Claim(ClaimTypes.Email, user.Senha)  
+                { 
+                    Clientes cli = new Clientes();
+                    cli = ClientesRepository.FindByEmail(user.Email);
+                   
+                    //Criando uma identidade para o usuário
+                   
+                    Claim claim1 = new Claim(ClaimTypes.Name, cli.Nome);                   
+                    Claim claim2 = new Claim(ClaimTypes.Email, cli.Email);
 
-                    };  
+                    IList<Claim> Claims = new List<Claim>() {                      
+                        claim1,
+                        claim2
+                    };
+                                                      
+                    //Criando uma Identidade e associando-a ao ambiente. 
+       
+                    ClaimsIdentity userIdentity = new ClaimsIdentity(Claims, "Login");
+                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
 
-                    ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "Login");  
+                    await HttpContext.SignInAsync(principal);
 
-                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);  
-
-                    await HttpContext.SignInAsync(principal);  
+                    HttpContext.Session.SetString(SessionId, cli.Id.ToString());
+                    TempData["Id"] =  HttpContext.Session.GetString(SessionId);
+                    //TempData["Id"] = cli.Id;
 
                     return RedirectToAction("Index", "Home");  
 

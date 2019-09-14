@@ -27,6 +27,10 @@ namespace ASPCoreSample.Controllers
 
         public IActionResult Index()
         {
+            // if (TempData["Id"].ToString() != null){
+            //   ViewBag.Id = TempData["Id"].ToString();  
+            // }
+            
             return View(CarrinhosRepository.FindAll());
         }
 
