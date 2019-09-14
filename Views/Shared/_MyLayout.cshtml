@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] = Ecommerce</title>
+    <p>@ViewBag.Id</p>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment include="Development">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+              
+    </environment>
+    <link rel="stylesheet" href="~/css/tema.css" />
+    </head>
+<body>
+  <header>
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="col-md-3 carrinho">
+          <!--<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Alibaba</a>-->
+
+          <a href="@Url.Action("Index", "Home")"><img src="/img/logos/logo-alibaba.png" />
+            <!--<a asp-area="" asp-controller="Home" asp-action="Index"><b>&nbsp&nbsp&nbsp&nbspHome</b></a>-->
+          
+        </div>
+
+
+        <div class="col-md-3 carrinho">
+
+          <ul class="carrinho">
+              <li>
+                <a asp-area="" asp-controller="Home" asp-action="Index"><b>Home</b></a>
+                <!--<span class="glyphicon glyphicon-user"></span>-->
+              </li>
+          </ul>
+
+        </div>
+
+
+        <div class="col-md-3 text-right carrinho">
+
+          <ul class="carrinho">      
+              <li>
+                <a asp-area="" asp-controller="Carrinhos" asp-action="Index">
+                  <b>Carrinho  </b> <span class="glyphicon glyphicon-shopping-cart"></span>            
+                </a>
+              </li>        
+          </ul>     
+        </div>
+
+
+       <div class="col-md-3 text-center carrinho">
+
+          <ul class="carrinho">
+              <li>
+                <a asp-area="" asp-controller="Home" asp-action="Painel"><b>Painel Adm. </b></a>          
+              </li>
+          </ul>
+
+        </div>
+
+
+      </div>
+
+    </div>  
+
+  <!-- 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Alibaba</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item active">
+         
+          <a a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+         
+        </li>
+
+       
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categorias
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <a class="dropdown-item" href="#">Action</a>
+         <a asp-for="Idcategoria" class ="dropdown-item" asp-items="ViewBag.Idcategoria"></a>
+          
+          <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Menu"></a>
+          
+          <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+
+      </li>
+
+    </div>
+
+   
+
+   <div class="navbar-nav">
+    
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Login"><b> Entrar </b>
+        <span class="glyphicon glyphicon-log-in"></span></a> 
+      
+   </div>
+
+   <div class="navbar-nav">
+      
+        <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Logout"><b> Sair </b><span class="glyphicon glyphicon-off"><span></a> 
+      
+   </div>
+
+   
+
+  </ul>
+
+
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+    </form>
+    </div>
+  </nav>-->
+  
+  </header>
+   <div class="container">
+        <div class="container">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+<nav aria-label="Navegação de página exemplo">
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Próximo</a>
+      </li>
+    </ul>
+</nav>
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-center">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+
+      <div class="col-md-3 mt-md-0 mt-3">
+
+        
+        <ul class="list-unstyled">
+    
+          <li>
+            <a asp-area="" asp-controller="Home" asp-action="QuemSomos">Quem Somos</a>
+          </li>
+         
+        </ul>
+
+      </div>
+
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+       
+
+        <ul class="list-unstyled">
+          <li>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+       
+
+        <ul class="list-unstyled">
+          <li>
+            <a asp-area="" asp-controller="Home" asp-action="Atendimento">Atendimento</a>
+          </li>
+         
+         
+         
+        </ul>
+
+      </div>
+
+      
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+       
+
+        <ul class="list-unstyled">
+         
+          <li>
+            <a asp-area="" asp-controller="Home" asp-action="TrabalheConosco">Trabalhe Conosco</a>
+          </li>
+         
+         
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Desenvolvidor:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> vitorramos.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -16,6 +16,19 @@
           "lib/netstandard2.0/Dapper.dll": {}
         }
       },
+      "Dommel/1.11.0": {
+        "type": "package",
+        "dependencies": {
+          "Dapper": "1.60.1",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Dommel.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dommel.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4477,6 +4490,23 @@
         "lib/netstandard1.3/Dapper.xml",
         "lib/netstandard2.0/Dapper.dll",
         "lib/netstandard2.0/Dapper.xml"
+      ]
+    },
+    "Dommel/1.11.0": {
+      "sha512": "+ihEO5hktKLtFpv/Kd6AWWDW2tCJJfuw43D3VOismvdRyKtqBKDgZFpwMqLQYap0gZtW+9LAYX5mEukWQev5rg==",
+      "type": "package",
+      "path": "dommel/1.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dommel.1.11.0.nupkg.sha512",
+        "dommel.nuspec",
+        "lib/net451/Dommel.dll",
+        "lib/net451/Dommel.xml",
+        "lib/netstandard1.3/Dommel.dll",
+        "lib/netstandard1.3/Dommel.xml",
+        "lib/netstandard2.0/Dommel.dll",
+        "lib/netstandard2.0/Dommel.xml"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -12156,8 +12186,10 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Dapper >= 1.60.9",
+      "Dommel >= 1.11.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+      "Microsoft.AspNetCore.Session >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "Npgsql >= 4.0.9"
     ]
@@ -12169,11 +12201,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj",
+      "projectUniqueName": "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/ASPCoreSample.csproj",
       "projectName": "ASPCoreSample",
-      "projectPath": "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj",
+      "projectPath": "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/ASPCoreSample.csproj",
       "packagesPath": "/home/vitor/.nuget/packages/",
-      "outputPath": "/home/vitor/Projetos/ASPCoreSample/obj/",
+      "outputPath": "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -12205,6 +12237,10 @@
             "target": "Package",
             "version": "[1.60.9, )"
           },
+          "Dommel": {
+            "target": "Package",
+            "version": "[1.11.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -12213,6 +12249,10 @@
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.AspNetCore.Session": {
             "target": "Package",
             "version": "[2.2.0, )"
           },

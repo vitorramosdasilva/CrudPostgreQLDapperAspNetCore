@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "41932d1be7c4c7820d9e498f6e84085de1a89e5a"
+    "signature": "315f628d204ec8c4488cf56ec20fcbbbfeb45c7d"
   },
   "compilationOptions": {
     "defines": [
@@ -25,8 +25,10 @@
       "ASPCoreSample/1.0.0": {
         "dependencies": {
           "Dapper": "1.60.9",
+          "Dommel": "1.11.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
+          "Microsoft.AspNetCore.Session": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "Npgsql": "4.0.9"
         },
@@ -51,6 +53,21 @@
         },
         "compile": {
           "lib/netstandard2.0/Dapper.dll": {}
+        }
+      },
+      "Dommel/1.11.0": {
+        "dependencies": {
+          "Dapper": "1.60.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dommel.dll": {
+            "assemblyVersion": "1.11.0.0",
+            "fileVersion": "1.11.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Dommel.dll": {}
         }
       },
       "Npgsql/4.0.9": {
@@ -3266,6 +3283,13 @@
       "sha512": "sha512-OJYG0srd4h2PPJLoatULNPw0gU4+2FlSYYLYCD2iVKs8cCYcUrWbh1oXrTKcZxgfiRKQlptXX5WwEs4hrRC9BA==",
       "path": "dapper/1.60.9",
       "hashPath": "dapper.1.60.9.nupkg.sha512"
+    },
+    "Dommel/1.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+ihEO5hktKLtFpv/Kd6AWWDW2tCJJfuw43D3VOismvdRyKtqBKDgZFpwMqLQYap0gZtW+9LAYX5mEukWQev5rg==",
+      "path": "dommel/1.11.0",
+      "hashPath": "dommel.1.11.0.nupkg.sha512"
     },
     "Npgsql/4.0.9": {
       "type": "package",

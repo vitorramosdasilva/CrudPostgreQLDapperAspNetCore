@@ -1,0 +1,83 @@
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-family: sans-serif, Times, "Times New Roman", Georgia;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+footer a{
+	
+	color: gray;
+
+}
+
+footer p{
+	
+	font-size: 12px;
+	color: #778899;
+
+}
+
+
+footer{
+
+	
+    background-color: #b2c2bf;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+
+
+}
+
+.box{
+  box-model: border-box;
+  border: 3px solid transparent;
+  background-clip:padding-box;
+}
+
+.carrinho{
+	margin-top: 10px;
+	
+}
+
+.carrinho a{
+	
+	color: gray;
+}
+
+li{
+
+	list-style-type: none;
+
+
+}
+
+.dropdown-toggle{
+  color: gray;
+}
+
+.card-header a{
+  color: gray;
+  font-weight: bold;
+}
+
+

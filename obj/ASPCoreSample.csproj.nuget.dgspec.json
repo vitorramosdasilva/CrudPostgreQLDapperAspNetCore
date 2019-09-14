@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj": {}
+    "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/ASPCoreSample.csproj": {}
   },
   "projects": {
-    "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj": {
+    "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/ASPCoreSample.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj",
+        "projectUniqueName": "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/ASPCoreSample.csproj",
         "projectName": "ASPCoreSample",
-        "projectPath": "/home/vitor/Projetos/ASPCoreSample/ASPCoreSample.csproj",
+        "projectPath": "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/ASPCoreSample.csproj",
         "packagesPath": "/home/vitor/.nuget/packages/",
-        "outputPath": "/home/vitor/Projetos/ASPCoreSample/obj/",
+        "outputPath": "/home/vitor/Projetos/CrudPostgreQLDapperAspNetCore/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -43,6 +43,10 @@
               "target": "Package",
               "version": "[1.60.9, )"
             },
+            "Dommel": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -51,6 +55,10 @@
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.2.0, )"
             },

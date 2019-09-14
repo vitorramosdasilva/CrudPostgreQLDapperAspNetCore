@@ -1,0 +1,104 @@
+@model IEnumerable<ASPCoreSample.Models.Carrinhos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+</br></br>
+<h1>Carrinho de Compras</h1>
+</br></br>
+
+<p>@ViewBag.Id</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <!--<th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>-->
+            <!--<th>
+                @Html.DisplayNameFor(model => model.Idproduto)
+            </th>-->
+            
+            <!--<th>
+                @Html.DisplayNameFor(model => model.Idcliente)
+            </th>-->
+             <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>             
+        </tr>
+    </thead>
+
+
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <!--<td>-->
+                @Html.HiddenFor(modelItem => item.Id)
+            <!--</td>-->
+
+            <!--<td>-->
+                @Html.HiddenFor(modelItem => item.Idproduto)
+            <!--</td>-->
+            
+            <!--<td>-->
+                @Html.HiddenFor(modelItem => item.Idcliente)
+            <!--</td>-->
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            
+             <td>                
+                <!--<input type="number" name="fname" value=@Html.DisplayFor(modelItem => item.Quantidade)>-->
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <!--<td>
+                <select asp-for="Idformapag" class ="form-control" asp-items="ViewBag.Idformapag"></select>
+            </td>
+             <td>
+                <select asp-for="Idstatus" class ="form-control" asp-items="ViewBag.Idstatus"></select>
+            </td>-->
+            <td>
+                <!--<a asp-action="Edit" asp-route-id="@item.Id">  <span class="glyphicon glyphicon-pencil"></span></a> |-->
+                <!--<a asp-action="Details" asp-route-id="@item.Id">Details</a> |-->
+                <a asp-action="Delete" asp-route-id="@item.Id"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+ 
+
+<button type="button" class="btn btn-primary">Comprar</button>
+
+<!--<script>
+var table = document.getElementsByTagName("table")[0];
+var tbody = table.getElementsByTagName("tbody")[0];
+tbody.onclick = function (e) {
+    e = e || window.event;
+    var data = [];
+    var target = e.srcElement || e.target;
+    while (target && target.nodeName !== "TR") {
+        target = target.parentNode;
+    }
+    if (target) {
+        var cells = target.getElementsByTagName("td");
+        for (var i = 0; i < cells.length; i++) {
+            data.push(cells[i].innerHTML);
+        }
+    }
+    alert(data[0] + '' + data[4]);
+};
+</script>-->
