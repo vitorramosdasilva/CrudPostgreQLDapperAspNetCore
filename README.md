@@ -40,3 +40,5 @@ Obs.: </br>
 6 - git status (verifica o status ex.: On branch master
 
 7 - git push origin master</br>
+
+8 - git push origin --delete commit_v3 -- Deleta uma Branch
