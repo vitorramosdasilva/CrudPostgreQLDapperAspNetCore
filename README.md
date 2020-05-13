@@ -42,3 +42,7 @@ Obs.: </br>
 7 - git push origin master</br>
 
 8 - git push origin --delete commit_v3 -- Deleta uma Branch
+
+Obs.: Caso o merge não funcione...
+Ignorar os commits do branch master do GitHub e o sobreescreverá com o seu branch local. Para isso basta acrescentar o argumento --force:
+#git push --set-upstream --force origin master
