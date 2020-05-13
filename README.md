@@ -2,7 +2,7 @@
 Pull Request  (Branch) - Desse modo você cria uma branch que é uma nova versão da aplicação do repopsitório:</br>
 
 1. git clone git@github.com:enderecodogit.git</br>
-Obs.: Git init, caso não queira clona o repostorio vazio.
+Obs.: Git init, caso não queira clonar o repostorio vazio.
 
 2.git branch</br>
 
