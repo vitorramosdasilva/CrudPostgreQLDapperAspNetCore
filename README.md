@@ -2,6 +2,7 @@
 Pull Request  (Branch) - Desse modo você cria uma branch que é uma nova versão da aplicação do repopsitório:</br>
 
 1. git clone git@github.com:enderecodogit.git</br>
+Obs.: Git init, caso não queira clona o repostorio vazio.
 
 2.git branch</br>
 
@@ -29,7 +30,7 @@ Merge in Master : - Desse modo voce cria uma nova versão na master que é uma m
 
 Obs.: </br>
 
-2 - git branch master (Cria Repositorio Master)</br>
+2 - git branch master (Cria Repositorio Master), ou seleciona a master</br>
 
 3 - git branch  ( Retorna qual branch nos estamos)</br>
 
